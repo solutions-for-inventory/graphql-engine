@@ -1,0 +1,60 @@
+name:                graphql-engine
+version:             0.1.0.0
+github:              "githubuser/graphql-engine"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2019 Author name here"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/graphql-engine#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- aeson                 >= 1.4.4.0   && <= 1.6
+- bytestring            >= 0.10.4    && <  0.11
+- text                  >= 1.2.3.0   && <  1.3
+- containers            >= 0.4.2.1   && <  0.7
+- mtl                   >= 2.0       && <= 2.3
+- websockets            >= 0.11.0    &&  <= 0.13
+- morpheus-graphql      >= 0.7.0
+- scotty
+- wai
+- warp
+- req
+- wai-websockets        >= 1.0       &&  <= 3.5
+
+library:
+  source-dirs: src
+
+executables:
+  graphql-engine-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - graphql-engine
+
+tests:
+  graphql-engine-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - graphql-engine
